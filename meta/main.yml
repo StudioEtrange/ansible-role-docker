@@ -5,16 +5,6 @@ galaxy_info:
   license: MIT
   min_ansible_version: 2.1
   platforms:
-  - name: EL
-    versions:
-    - 7
-  - name: Debian
-    versions:
-      - jessie
-  - name: Ubuntu
-    versions:
-      - xenial
-      #- zesty
   galaxy_tags:
     - docker
     - swarm
