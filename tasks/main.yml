@@ -9,12 +9,6 @@
     path: /etc/docker
     state: directory
 
-- name: ensure docker-py module is installed
-  pip:
-    name: docker-py
-    version: 1.9.0
-  when: dockerpy
-
 - name: apply default daemon config
   set_fact:
     docker_json: "{{ default_docker_config | combine(docker_config | default({})) }}"

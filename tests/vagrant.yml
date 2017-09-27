@@ -6,7 +6,7 @@
     docker_clusterstore: yes
     vagrant: yes
   roles:
-    - ../docker
+    - ../studioetrange.docker
   tasks:
     - name: check consul state
       command: docker ps -q -f name=consul

@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Carlos León
+  author: StudioEtrange / Carlos León's fork
   description: Docker
-  company: Container Solutions
+  company: StudioEtrange
   license: MIT
   min_ansible_version: 2.1
   platforms:

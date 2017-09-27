@@ -8,7 +8,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "centos-7" do |machine|
     machine.vm.box = "minimal/centos7"
-    machine.vm.provision "shell", inline: "yum update -y"
     machine.vm.provision "ansible" do |ansible|
       ansible.playbook = "tests/vagrant.yml"
     end
@@ -16,6 +15,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "debian-jessie" do |machine|
     machine.vm.box = "minimal/jessie64"
+    # ansible needs python and minima/jessie64 do not have python installed
     machine.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     machine.vm.provision "ansible" do |ansible|
       ansible.playbook = "tests/vagrant.yml"
@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "ubuntu-xenial" do |machine|
     machine.vm.box = "ubuntu/xenial64"
+    # ansible needs python and minima/xenial64 do not have python installed
     machine.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     machine.vm.provision "ansible" do |ansible|
       ansible.playbook = "tests/vagrant.yml"

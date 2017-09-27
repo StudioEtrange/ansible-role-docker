@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/mongrelion/ansible-role-docker.svg?branch=master)](https://travis-ci.org/mongrelion/ansible-role-docker)
 
 docker
 =========
 
 Install and configure Docker.
+Try to be minimal.
 
 Role Variables
 --------------
@@ -21,7 +21,6 @@ Default values: (set them in your `docker_config` to overwrite)
 
 Specify the version of Docker to install, e.g. `1.12.6`, `17.05`.
 
-Default value: `17.03`
 
 ### `setup_script_md5_sum`
 
@@ -36,11 +35,13 @@ Either:
 
 ### `setup_script_url`
 
-URL pointing to a Docker setup script that will install the specified `docker_version`. 
+URL pointing to a Docker setup script that will install the specified `docker_version`.
 
-Default value: `https://releases.rancher.com/install-docker/{{ docker_version }}.sh` 
+Default value: `https://releases.rancher.com/install-docker/{{ docker_version }}.sh`
 
 The default URL utilizes [Rancher Labs' version-specific, OS-agnostic setup scripts](https://github.com/rancher/install-docker), which in turn just install the appropriate version of `docker-ce` or `docker-engine` from the official Docker `apt` and `yum` repositories.
+
+So this role is not stuck on any particular OS other than the script can not support.
 
 Dependencies
 ------------
@@ -53,14 +54,14 @@ Install Docker
 ```yaml
 - hosts: servers
   roles:
-    - mongrelion.docker
+    - studioetrange.docker
 ```
 
 Install and configure docker
 ```yaml
 - hosts: servers
   roles:
-    - role: mongrelion.docker
+    - role: studioetrange.docker
       docker_config:
         live-restore: true
         userland-proxy: false
@@ -69,6 +70,11 @@ Install and configure docker
 Testing
 -------
 For development, we use Vagrant.
+
+```
+git clone https://github.com/StudioEtrange/ansible-role-docker studioetrange.docker
+```
+
 Bring the VM up with
 
 ```
@@ -90,4 +96,4 @@ MIT
 Author Information
 ------------------
 
-You can find me on Twitter: [@mongrelion](https://twitter.com/mongrelion)
+This is a fork of mongrelion's work : https://github.com/mongrelion/ansible-role-docker
