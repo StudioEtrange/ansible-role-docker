@@ -22,10 +22,8 @@ Vagrant.configure(2) do |config|
     end
   end
 
-  config.vm.define "ubuntu-xenial" do |machine|
-    machine.vm.box = "ubuntu/xenial64"
-    # ansible needs python and minima/xenial64 do not have python installed
-    machine.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
+  config.vm.define "ubuntu-trusty64" do |machine|
+    machine.vm.box = "ubuntu/trusty64"
     machine.vm.provision "ansible" do |ansible|
       ansible.playbook = "tests/vagrant.yml"
     end

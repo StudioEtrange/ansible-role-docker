@@ -1,5 +1,4 @@
-
-docker
+studioetrange.docker
 =========
 
 Install and configure Docker.
